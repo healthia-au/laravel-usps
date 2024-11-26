@@ -36,17 +36,19 @@ use Exception;
 
 class XML2Array
 {
-    private static $xml = null;
-    private static $encoding = 'UTF-8';
+    private static ?DOMDocument $xml = null;
+    protected static string $encoding = 'UTF-8';
 
     /**
      * Initialize the root XML node [optional]
      *
-     * @param $version
-     * @param $encoding
-     * @param $format_output
+     * @param string $version
+     * @param string $encoding
+     * @param bool $format_output
      */
-    public static function init($version = '1.0', $encoding = 'UTF-8', $format_output = true)
+    public static function init(string $version = '1.0',
+                                string $encoding = 'UTF-8',
+                                bool   $format_output = true): void
     {
         self::$xml               = new DOMDocument($version, $encoding);
         self::$xml->formatOutput = $format_output;
@@ -56,11 +58,11 @@ class XML2Array
     /**
      * Convert an XML string or DOMDocument to an Array
      *
-     * @param $input_xml string|DOMDocument
+     * @param $input_xml DOMDocument|string
      * @return array
      * @throws Exception
      */
-    public static function &createArray($input_xml)
+    public static function &createArray(DOMDocument|string $input_xml): array
     {
         $xml = self::getXMLRoot();
 
@@ -89,7 +91,7 @@ class XML2Array
      * @param mixed $node - XML as a string or as an object of DOMDocument
      * @return mixed
      */
-    private static function &convert($node)
+    private static function &convert(mixed $node): mixed
     {
         $output = [];
 
@@ -153,13 +155,13 @@ class XML2Array
 
         return $output;
     }
-
-    /**
-     * Get the root XML node, if there isn't one, create it.
-     *
-     * @return DOMDocument
-     */
-    private static function getXMLRoot()
+	
+	/**
+	 * Get the root XML node, if there isn't one, create it.
+	 *
+	 * @return DOMDocument|null
+	 */
+    private static function getXMLRoot(): ?DOMDocument
     {
         if (empty(self::$xml)) {
             self::init();

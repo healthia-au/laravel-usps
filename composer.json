@@ -14,15 +14,17 @@
             "email": "jp@leadtrust.io"
         },
         {
-            "name": "Vincent Gabriel",
-            "link": "https://github.com/VinceG"
+            "name": "Vincent Gabriel"
         }
     ],
     "homepage":"https://github.com/johnpaulmedina/laravel-usps/",
     "license": "MIT",
     "require": {
-        "php": "^8.1",
-        "illuminate/support": "^10.0"
+        "php": ">=8.3",
+        "illuminate/support": "^11.0",
+        "illuminate/config": "^11.0",
+	    "ext-curl": "*",
+	    "ext-dom": "*"
     },
     "autoload": {
         "psr-4": {
