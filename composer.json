@@ -1,6 +1,6 @@
 {
-    "name": "johnpaulmedina/laravel-usps",
-    "description": "USPS API for Laravel 10",
+    "name": "healthia/laravel-usps",
+    "description": "USPS API for Laravel 11. Forked from johnpaulmedina/laravel-usps for PHP 8.3+ / Laravel 11",
     "type": "library",
     "keywords": [
         "usps",
@@ -17,7 +17,7 @@
             "name": "Vincent Gabriel"
         }
     ],
-    "homepage":"https://github.com/johnpaulmedina/laravel-usps/",
+    "homepage":"https://github.com/healthia/laravel-usps/",
     "license": "MIT",
     "require": {
         "php": ">=8.3",
